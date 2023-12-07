@@ -22,7 +22,18 @@ def collect_student_info():
 #     print(value)
 
 df = pd.read_csv('scholarships.csv')
-print(df)
+
+df["scholarship_score"] = round((df["ScholarshipAward"]/df["Applicants"]),2)
+
+#print(df['scholarship_score'])
+
+
+
+sorted_df = df.sort_values(by="scholarship_score", ascending=False)
+
+print(sorted_df.head(3))
+
+#print(sorted_df[["Name","scholarship_score"]])
 
 # Access specific columns and turn them into lists
 # names = df['Name'].tolist()
