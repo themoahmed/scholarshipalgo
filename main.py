@@ -39,6 +39,12 @@ print(sorted_df.head(3))
 # names = df['Name'].tolist()
 # ages = df['Age'].tolist()
 
+def findMax(df):
+    df["scholarship_score"] = round((df["ScholarshipAward"]/df["Applicants"]),2)
+    sorted_df = df.sort_values(by="scholarship_score", ascending=False)    
+    return sorted_df
 
 
+
+df = df[df['first-gen'] != 'Y']
 
